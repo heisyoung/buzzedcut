@@ -1,0 +1,39 @@
+.frames{bottom:28%;gap:12px}.judge-frame .caption{display:none!important}.show-subtitle{position:absolute;top:74%;left:7%;right:7%;min-height:55px;text-align:center;font-size:17px;line-height:1.35;color:#fff9e9;font-weight:600;text-shadow:0 2px 3px #28170d,0 0 8px #28170d}.show-subtitle small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;color:#ffe0ac}.hint{bottom:17%}.feedback-actions{bottom:7.5%}/* Fill Vincent's frame so the source's shoulder crop ends at the frame edge. */
+.judge-frame.vincent .portrait,.judge-frame.lead.vincent .portrait{width:100%;height:100%;bottom:0;object-fit:cover;object-position:50% 8%}
+/* Preserve the approved portrait scale; carry the black shirt to the frame edge. */
+.judge-frame.vincent::before{content:"";position:absolute;inset:0;background:#232122;clip-path:polygon(0 80%,22% 68%,78% 68%,100% 80%,100% 100%,0 100%)}
+.judge-frame.lead.vincent::before{clip-path:polygon(0 89%,24% 78%,76% 78%,100% 89%,100% 100%,0 100%)}
+.judge-frame.vincent .portrait{width:auto;height:100%;bottom:-3%;object-fit:contain}
+.judge-frame.lead.vincent .portrait{width:auto;height:125%;bottom:-21%;object-fit:contain}
+
+.portrait.talk-layer{pointer-events:none;opacity:0;will-change:opacity}
+/* Expression edition: stable portrait geometry for every pose and isolated speech. */
+.judge-frame::before{display:none!important}.judge-frame .name{display:none}
+.judge-frame .actor{position:absolute;inset:0;transform-origin:50% 75%;will-change:transform}
+.judge-frame .art-layer,.judge-frame.lead .art-layer{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 0;transform:none;transition:opacity .17s ease;pointer-events:none}
+.judge-frame .art-layer.alternate{opacity:0}
+.judge-frame .art-layer.mouth-layer{opacity:0;transition:none;will-change:opacity}
+.judge-frame{background-size:auto 230%;background-position:50% 20%}
+@media(prefers-reduced-motion:reduce){.judge-frame .art-layer{transition:none}}
+/* Keep full heads, shoulders and chest in shot rather than magnifying tall Rosa art. */
+.judge-frame .art-layer,.judge-frame.lead .art-layer{object-fit:contain;object-position:50% 100%}
+
+.hint.creator-question{font-size:23px;line-height:1.3;font-weight:700;left:6%;right:6%;bottom:12%;padding:10px 4px;text-shadow:0 2px 4px #29170e,0 0 10px #29170e;background:none}
+.actor-canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+.review-transition{position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:#633b25 url(../viewing/layers/studio-top-clean-old-bottom-v13.webp) center/cover no-repeat}
+.hypnotic-wheel{width:72vw;max-width:280px;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 5px #2d1710,0 10px 28px #27120b88;animation:hypnotic-spin .95s linear infinite}
+@keyframes hypnotic-spin{to{transform:rotate(360deg)}}
+
+.judge-frame.speaking{animation:none!important;box-shadow:0 0 0 2px #fff1c9,0 0 20px #ffe2a888!important;border-color:#fff1c9!important}.judge-frame.speaking .actor{animation:none!important}
+
+/* The finale is a staged reveal over the submitted video. */
+.feedback-actions{align-items:center;gap:16px}.skip-questions{flex:none;width:34px;height:34px;border:2px solid #f6dfb4;border-radius:50%;background:#382217db;color:#fff1d8;font:27px/1 Arial;box-shadow:0 2px 5px #24130866;padding:0;transform:none}.skip-questions:hover{background:#704529}
+.verdict-title{position:absolute;z-index:2;top:8%;left:0;right:0;margin:0;text-align:center;font:900 42px/.95 Impact,'Arial Black',Arial,sans-serif;color:#fff0ce;-webkit-text-stroke:1.5px #2b150b;text-shadow:2px 4px 0 #2b150b;letter-spacing:.025em;transform:rotate(-3deg)}
+.results .result-shade{background:linear-gradient(#29160bd9 0%,#3f241380 36%,#3e24127d 63%,#28160de8 100%)}.score-heads{top:21%;left:7%;right:7%;gap:14px}.score-item{position:relative;display:flex;flex-direction:column;gap:8px;text-align:center;align-items:center}.score-item img{width:61px;height:81px;border:3px solid #f2d6a3;box-shadow:0 4px 0 #25140b}.score-number{font:900 44px/1 'Arial Black',Arial,sans-serif;color:#fff3d4;text-shadow:2px 3px 0 #2b150b}.score-number small{font:11px/1.3 Arial,sans-serif;margin-top:6px;color:#ffedcc}.score-item.locked{animation:verdictLock .23s ease-out}.buzz-stamp{position:absolute;top:-12px;right:-2px;color:#ff3434;-webkit-text-stroke:2px #fff6db;paint-order:stroke fill;text-shadow:0 0 9px #ff3434,2px 3px 0 #271408;font:900 39px/1 Arial;transform:rotate(-13deg)}.score-item.buzzed img{filter:saturate(.65)}
+.average{top:49%;z-index:2;isolation:isolate;animation:verdictPop .65s ease-out}.average::before{content:'';position:absolute;z-index:-1;width:240px;height:170px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-6deg);background:#eaa945db;clip-path:polygon(50% 0,59% 17%,77% 5%,77% 27%,100% 23%,87% 43%,100% 57%,79% 65%,87% 89%,63% 83%,52% 100%,40% 82%,16% 92%,22% 69%,0 59%,15% 43%,2% 23%,26% 27%,25% 7%,43% 18%);filter:drop-shadow(0 4px 0 #2a150a)}.average>small{font-weight:bold;text-transform:uppercase;font-size:12px;color:#30190c;text-shadow:none}.average strong{font:900 82px/1.1 'Arial Black',Arial,sans-serif;color:#fff4dc;-webkit-text-stroke:1px #30190b;text-shadow:3px 4px 0 #30190b}.average strong span{font-size:22px}
+.result-actions{bottom:9%;left:14%;right:14%;gap:12px}.result-actions .primary{font-size:18px;text-decoration:none}.result-actions #newUpload{background:#ffe9b9;font-size:16px}.results video{animation:verdictVideo 12s ease-out both}
+@keyframes verdictLock{50%{transform:scale(1.12)}}@keyframes verdictPop{0%{opacity:0;transform:scale(.55) rotate(-8deg)}75%{opacity:1;transform:scale(1.06) rotate(1deg)}100%{transform:scale(1) rotate(0)}}@keyframes verdictVideo{to{transform:scale(1.035)}}@media(prefers-reduced-motion:reduce){.score-item.locked,.average,.results video{animation:none}}
+
+.results video{object-fit:contain;background:#362319 url(../viewing/layers/studio-top-clean-old-bottom-v13.webp) center/cover}
+
+.show-pause{position:fixed;z-index:101;top:max(12px,env(safe-area-inset-top));right:12px;width:42px;height:42px;border:1px solid #e3b77c;border-radius:50%;background:#352116ed;color:#fff1d5;font:700 23px/1 Arial;box-shadow:0 2px 7px #0005;cursor:pointer}.show-pause[hidden],#pauseShield[hidden]{display:none}#pauseShield{position:fixed;inset:0;z-index:100;background:#20150c18}.show-paused *{animation-play-state:paused!important}
