@@ -1,0 +1,14 @@
+{
+  "target_total_ms": 60000,
+  "scope": "upload submission to playable, with cold page/server startup recorded separately; a target, not a universal SLA",
+  "stage_budget_ms": {
+    "cold_start": 3000,
+    "upload": 3000,
+    "queue": 2000,
+    "analysis": 15000,
+    "director": 12000,
+    "voice_and_audio": 20000,
+    "browser": 5000
+  },
+  "measurement": "server state has actual upload_ms and step timings; browser sends upload_to_playable_ms/player_ready_ms/upload_client_ms and first-player label; health provides uptime_ms; no fake countdown or latency guarantee"
+}
