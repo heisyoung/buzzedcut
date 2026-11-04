@@ -1,0 +1,19 @@
+# Never commit credentials, uploads, generated dialogue/audio or local research.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.log
+.DS_Store
+__pycache__/
+.venv/
+node_modules/
+cache/
+data/
+samples/
+repairs/
+work/
+verification/
+*.mp4
