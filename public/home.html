@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b110d">
+<meta name="description" content="Everybody deserves an audience. Upload your video and meet the Buzzed Cut judges.">
+<title>Buzzed Cut — Everybody deserves an audience</title>
+<style>
+:root{color-scheme:dark;--ink:#1b110d;--cream:#fff1d5;--yellow:#ffd337;--muted:#d2bba4;--red:#ff473c;font-family:Arial,Helvetica,sans-serif;background:var(--ink);color:var(--cream)}
+*{box-sizing:border-box}body{margin:0;min-width:280px}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-offset:5px}[hidden]{display:none!important}
+.home{max-width:900px;min-height:100svh;margin:auto;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 75%,#56302155,transparent 65%),var(--ink)}
+.set{height:clamp(218px,32svh,330px);position:relative;overflow:hidden;background:#3a2016}.set img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}.set::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,var(--ink))}
+.invitation{position:relative;text-align:center;margin:-7px auto 0;padding:0 24px;max-width:600px;z-index:1}
+h1{font-family:"Arial Rounded MT Bold","Trebuchet MS",Arial,sans-serif;font-size:clamp(30px,7.9vw,46px);font-weight:900;line-height:1.06;letter-spacing:-1.25px;margin:0 auto 15px;max-width:510px;text-wrap:balance}
+.line{font-size:clamp(18px,4.7vw,22px);margin:0 0 10px;line-height:1.4}.limits{font-size:13px;color:var(--muted);margin:0 0 23px;letter-spacing:.15px;line-height:1.5}
+.upload{display:inline-flex;justify-content:center;align-items:center;gap:11px;min-height:58px;width:min(100%,306px);border:2px solid #1a100a;border-radius:13px;background:var(--yellow);color:#241309;font-weight:800;font-size:19px;box-shadow:0 5px 0 #9d561d,0 9px 23px #0005;transition:transform .15s,box-shadow .15s}.upload:hover{background:#ffdf61;transform:translateY(-1px)}.upload:active{transform:translateY(3px);box-shadow:0 2px 0 #9d561d}.upload svg{width:23px;height:23px;stroke:currentColor;stroke-width:2;fill:none}
+.poster{position:relative;margin:30px auto 0;width:min(100%,650px);height:clamp(220px,31svh,320px);display:flex;align-items:flex-end;justify-content:center;pointer-events:none}.poster::before{content:"";position:absolute;width:78%;height:80%;bottom:-18%;border-radius:50%;background:#ef6b2033;filter:blur(35px)}.poster img{position:relative;width:100%;height:100%;object-fit:contain;object-position:bottom center;display:block;filter:drop-shadow(0 5px 0 #080604) drop-shadow(0 -2px 1px #e29b4e44)}
+.bottom{height:max(32px,env(safe-area-inset-bottom));background:linear-gradient(transparent,#100a08)}
+.menu-trigger{position:fixed;right:max(19px,env(safe-area-inset-right));bottom:max(19px,env(safe-area-inset-bottom));z-index:5;width:50px;height:50px;border-radius:50%;border:1px solid #bd865452;background:#261810ed;color:var(--cream);box-shadow:0 4px 18px #0007;display:grid;place-items:center}.menu-trigger svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.menu{position:fixed;right:19px;bottom:80px;z-index:6;background:#322016;border:1px solid #815b3a;border-radius:16px;padding:7px;box-shadow:0 12px 45px #0009;width:235px}.menu button{display:block;text-align:left;width:100%;background:none;border:0;color:var(--cream);padding:15px 13px;border-radius:9px;font-weight:600}.menu button:hover{background:#654026}
+.message{max-width:420px;margin:17px auto 0;font-size:14px;line-height:1.5;color:#ffc5a7}.status{margin:22px auto 0;max-width:350px;font-size:15px;line-height:1.5}.status strong{display:block;font-size:19px;margin-bottom:8px}.status progress{display:block;width:100%;height:9px;accent-color:var(--yellow);margin:12px 0}.loading-dots{display:inline-flex;gap:5px;margin-left:10px}.loading-dots i{width:6px;height:6px;border-radius:50%;background:var(--yellow);animation:studio-pulse 1s ease-in-out infinite}.loading-dots i:nth-child(2){animation-delay:.15s}.loading-dots i:nth-child(3){animation-delay:.3s}@keyframes studio-pulse{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-4px)}}@media(prefers-reduced-motion:reduce){.loading-dots i{animation:none}}.status button{border:0;background:none;color:var(--yellow);text-decoration:underline;padding:10px}
+dialog{width:min(92vw,460px);max-height:90svh;overflow:auto;color:var(--cream);background:#2c1c14;border:1px solid #815837;border-radius:23px;padding:26px;box-shadow:0 20px 80px #0008}dialog::backdrop{background:#090503cc;backdrop-filter:blur(5px)}dialog h2{font-size:25px;letter-spacing:-.5px;margin:0 35px 19px 0;line-height:1.15}dialog p{line-height:1.6;color:#e8d2bd;font-size:15px}dialog ul{line-height:1.8;padding-left:20px;color:#e8d2bd}.close{position:absolute;right:16px;top:13px;width:35px;height:35px;color:var(--cream);background:none;border:0;font-size:29px}.review-video{display:block;width:100%;max-height:220px;border-radius:11px;background:#100a08;margin:0 0 12px}.file-info{font-size:12px!important;overflow-wrap:anywhere;margin:0 0 20px!important;color:var(--muted)!important}label{display:block;font-size:14px;font-weight:700;margin:16px 0 7px}input[type=text]{width:100%;background:#170e09;color:var(--cream);border:1px solid #805435;border-radius:9px;padding:13px;font-size:16px}.optional{font-weight:400;color:var(--muted)}.send{width:100%;margin-top:22px}.review-error{color:#ffc5a7!important;margin-bottom:0;font-size:14px!important}
+@media(min-width:700px){body{background:radial-gradient(ellipse at top,#50301c,#110b08 75%)}.home{max-width:860px;border-left:1px solid #8c5a2922;border-right:1px solid #8c5a2922;box-shadow:0 0 100px #0005}.set{height:315px}.set img{object-position:center 7%}.invitation{margin:-10px auto 0}.poster{height:300px;margin-top:32px;width:650px}.menu-trigger{right:max(26px,calc((100vw - 860px)/2 + 20px))}.menu{right:max(26px,calc((100vw - 860px)/2 + 20px))}}
+@media(max-height:760px) and (max-width:699px){.set{height:210px}h1{font-size:31px;margin-bottom:11px}.limits{margin-bottom:18px}.poster{height:205px;margin-top:25px}.bottom{height:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Keep the landing page inside the studio's warm amber and wood palette. */
+:root{--ink:#64351f;--cream:#fff2d9;--muted:#f1d0ad;background:#392016}
+body{background:#392016}.home{background:linear-gradient(180deg,#b96034 0%,#8d4728 42%,#66361f 74%,#48281c 100%)}
+.set{height:clamp(210px,29svh,300px)}.set::after{inset:76% 0 0;background:linear-gradient(transparent,#a3532e)}
+.invitation{margin:0 auto;padding:0 20px;max-width:570px}h1{font-size:clamp(26px,6.6vw,38px);line-height:1.04;letter-spacing:-.9px;margin:0 auto 7px;text-shadow:0 2px 1px #45251966}
+.line{font-size:clamp(16px,4.1vw,19px);margin:0 0 5px}.limits{font-size:12px;margin:0 0 12px}.upload{min-height:48px;width:min(100%,260px);font-size:17px;border-radius:11px;box-shadow:0 4px 0 #774019,0 6px 13px #40211355}
+.poster{width:100%;max-width:900px;height:clamp(280px,43svh,450px);margin:15px auto 0}.poster::before{display:none}.poster img{width:112%;max-width:none;flex-shrink:0;filter:drop-shadow(0 3px 0 #49291a)}
+.bottom{height:max(12px,env(safe-area-inset-bottom));background:#48281c}.menu-trigger{background:#512d1eea;border-color:#e8b47277}
+@media(min-width:700px){body{background:#392016}.set{height:300px}.invitation{margin:0 auto}.poster{width:100%;height:430px;margin-top:16px}.poster img{width:100%}.home{box-shadow:0 0 90px #25120b55}}
+@media(max-height:760px) and (max-width:699px){.set{height:195px}h1{font-size:26px;margin-bottom:6px}.limits{margin-bottom:11px}.poster{height:310px;margin-top:13px}.bottom{height:12px}}
+
+/* An illustrated ensemble poster, with the upload invitation in its billing area. */
+:root{color-scheme:light;--cream:#2b231b;--muted:#65513c;--ink:#f7e7c5;background:#301c14;color:#2b231b}
+body{background:#301c14}.home{width:100%;max-width:650px;height:max(844px,100svh);min-height:844px;margin:auto;background:#f7e7c5 url('home-assets/ensemble-sand-v5.webp') center top/100% 100% no-repeat;isolation:isolate;box-shadow:0 0 70px #0a050655}
+.home::after{content:"";position:absolute;inset:76% 0 0;z-index:-1;background:linear-gradient(transparent,#f7e7c5 30%)}
+.set{position:absolute;left:10%;right:10%;top:13px;height:145px;background:none;overflow:visible;z-index:2}.set img{object-fit:contain;object-position:center top;filter:drop-shadow(0 3px 0 #432010)}.set::after{display:none}
+.invitation{position:absolute;bottom:34px;left:0;right:0;margin:0;max-width:none;padding:0 22px;text-align:center;color:#2b231b;z-index:3}
+h1{font-size:clamp(26px,6.9vw,37px);line-height:1.02;letter-spacing:-1px;margin:0 auto 7px;text-shadow:none;max-width:470px;font-weight:900}.line{font-size:16px;line-height:1.3;margin:0 0 5px}.limits{font-size:12px;line-height:1.4;margin:0 0 13px;color:#70573c}
+.upload{width:min(100%,280px);min-height:48px;font-size:17px;background:#ffd236;border:2px solid #2a2117;border-radius:7px;box-shadow:0 4px 0 #a86027;color:#2b2118}.upload:hover{background:#ffe271}
+.poster,.bottom{display:none}.menu-trigger{width:43px;height:43px;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));color:#fff0ce;background:#492d1ced;border-color:#b47c4e;box-shadow:0 3px 8px #3b210c33}
+.message{color:#8b2f20;background:#fff1d8ed;border-radius:6px;padding:8px;margin-top:12px}.message[hidden]{display:none}.status{background:#f7e7c5f2;padding:10px;border-radius:9px;color:#33251c}.menu{color:#fff1d5}.menu button{color:#fff1d5}
+@media(min-width:700px){.home{width:min(100%,600px);height:900px;min-height:900px}.set{height:165px;top:15px}.invitation{bottom:30px;padding:0 30px}h1{font-size:36px}.poster{display:none}.menu-trigger{right:max(20px,calc((100vw - 600px)/2 + 13px))}.menu{right:max(20px,calc((100vw - 600px)/2 + 13px))}}
+@media(max-width:699px) and (max-height:760px){.home{height:780px;min-height:780px}.set{height:130px;top:10px}.invitation{bottom:28px}h1{font-size:26px}.limits{margin-bottom:11px}.poster{display:none}}
+
+.set{top:53%;left:9%;right:9%;height:123px}.home::after{inset:73% 0 0;background:linear-gradient(transparent,#f7e7c5 22%)}
+@media(min-width:700px){.set{top:53%;height:145px}.invitation{bottom:28px}}
+@media(max-width:699px) and (max-height:760px){.set{top:52%;height:118px}}
+
+.home{background-image:none}.poster-art{position:absolute;inset:0 0 auto;width:100%;height:calc(100% - 150px);object-fit:cover;object-position:center top;z-index:-2}.set{top:48%}
+@media(min-width:700px){.set{top:48%}}@media(max-width:699px) and (max-height:760px){.set{top:48%}}
+
+/* Continuous California poster artwork, a dominant title, and a voiced tagline. */
+.home{background:#e6bd78}.poster-art{height:100%;object-fit:cover;object-position:center top}.home::after{display:none}
+.set{top:45%;left:-2%;right:-2%;height:175px;pointer-events:none}.set img{filter:drop-shadow(0 4px 0 #442114) drop-shadow(0 5px 8px #33110933)}
+.invitation{bottom:43px;padding:0 22px}h1{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:32px;font-weight:800;line-height:1;letter-spacing:-1.25px;color:#493022;text-shadow:0 1px 0 #fff2c9,0 2px 0 #e5b87c;margin-bottom:11px;transform:rotate(-2deg)}
+.line{font-size:16px;font-weight:600;color:#493022}.limits{color:#664c35;font-size:12px;margin-bottom:12px}.upload{box-shadow:0 4px 0 #aa5c28,0 7px 12px #7c4a2422}
+.menu-trigger{background:#523b26e8;border-color:#e3b77c}
+@media(min-width:700px){.set{top:44%;left:-2%;right:-2%;height:210px}.invitation{bottom:42px}h1{font-size:43px;max-width:530px}}
+@media(max-width:699px) and (max-height:760px){.set{top:44%;height:165px}.invitation{bottom:37px}h1{font-size:30px}}
+
+.set{top:41%;height:165px;left:-4%;right:-4%}.invitation{bottom:145px}.line,.limits{text-shadow:0 1px 2px #fff3ce,0 0 6px #fff0c099}
+@media(min-width:700px){.set{top:35%;height:210px;left:-4%;right:-4%}.invitation{bottom:145px}}
+@media(max-width:699px) and (max-height:760px){.set{top:39%;height:157px}.invitation{bottom:128px}}
+dialog,.close,input[type=text]{color:#fff1d5}.file-info,.optional{color:#d6bda4!important}
+/* Return to the smaller ensemble and straightforward tagline. */
+.poster-art{height:calc(100% - 150px)}
+.invitation{bottom:34px}
+h1{font-family:"Arial Rounded MT Bold","Trebuchet MS",Arial,sans-serif;font-style:normal;font-size:clamp(26px,6.9vw,37px);line-height:1.02;letter-spacing:-1px;margin:0 auto 7px;text-shadow:none;max-width:470px;font-weight:900;transform:none;color:#2b231b}
+.line{font-weight:400}.line,.limits{text-shadow:none}
+@media(min-width:700px){.invitation{bottom:30px}h1{font-size:36px}}
+@media(max-width:699px) and (max-height:760px){.invitation{bottom:28px}h1{font-size:26px}}
+.home{background:#e8c48e url("home-assets/ensemble-sand-v5.webp") center bottom/100% 200% no-repeat}.poster-art{mask-image:linear-gradient(#000 94%,transparent 100%)}
+.poster-art{object-position:75% top}
+.invitation{bottom:68px}.invitation>.upload{margin-bottom:10px}.invitation>.limits{margin:0 0 18px}.invitation>h1{margin-bottom:0}
+@media(min-width:700px){.invitation{bottom:64px}}
+@media(max-width:699px) and (max-height:760px){.invitation{bottom:60px}}
+/* Hide the decorative side flashes; retain the traffic-light emblem. */
+.set img{clip-path:inset(0 6.3% 0 5.1%)}
+@media(min-width:700px){.set{top:43%}.set img{clip-path:inset(0 9.3% 0 8.2%)}}
+
+.set img{clip-path:none;object-fit:contain}.set{left:2%;right:2%}
+/* Fixed design canvas; the outer app scales it uniformly. */
+html,body{width:390px;height:844px;min-width:0;overflow:hidden}.home{width:390px;max-width:none;height:844px;min-height:844px;margin:0}.set{top:41%;height:165px;left:2%;right:2%}.invitation{bottom:68px}h1{font-size:26.91px}.menu-trigger{right:12px;bottom:12px}.menu{right:12px}input[type=number]{width:100%;background:#170e09;color:#fff1d5;border:1px solid #805435;border-radius:9px;padding:13px;font-size:16px}
+</style>
+<style>dialog{max-height:calc(90% - var(--keyboard-offset,0px));bottom:var(--keyboard-offset,0px)}</style><style>.invitation.processing>.upload,.invitation.processing>.limits,.invitation.processing>h1{display:none!important}</style></head>
+<body>
+<main class="home">
+  <img class="poster-art" src="home-assets/ensemble-sand-v5.webp" alt="Vincent, Rosa and Dante star in a warm, illustrated studio poster" width="1280" height="1920">
+  <header class="set"><img src="home-assets/brand-logo-repaired-v15.png" width="650" height="240" alt="Buzzed Cut — the sunset studio" fetchpriority="high"></header>
+  <section class="invitation" aria-labelledby="headline">
+    <button class="upload" id="choose" type="button" aria-describedby="requirements"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M4 15v5h16v-5"/></svg>Upload video</button>
+    <p class="limits" id="requirements">Max 30 seconds long · Max 100 MB</p>
+    <h1 id="headline">Everybody deserves<br>an audience.</h1>
+    <input id="file" type="file" accept="video/*,.mp4,.mov,.webm" hidden>
+    <p class="message" id="error" role="alert" hidden></p>
+    <div class="status" id="status" role="status" aria-live="polite" hidden><strong id="status-title"></strong><span id="status-detail"></span><strong id="upload-percent" aria-live="off" hidden style="display:block;margin-top:7px;font-size:19px;font-variant-numeric:tabular-nums"></strong></div>
+  </section>
+
+  <div class="bottom" aria-hidden="true"></div>
+</main>
+<button class="menu-trigger" id="menu-button" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+<nav class="menu" id="menu" aria-label="Menu" hidden><a href="/examples.html" style="display:block;padding:12px;color:#fff1d5;text-decoration:none">Saved shows</a><button type="button" data-info="how">How it works</button><button type="button" data-info="limits">Video requirements</button><a href="/privacy.html" style="display:block;padding:12px;color:#fff1d5;text-decoration:none">Privacy</a></nav>
+<dialog id="info"><button class="close" type="button" aria-label="Close">×</button><h2 id="info-title"></h2><div id="info-body"></div></dialog>
+<dialog id="review" aria-labelledby="review-title">
+ <button class="close" type="button" aria-label="Close">×</button>
+ <h2 id="review-title">Your moment.</h2>
+ <video id="preview" class="review-video" controls playsinline preload="metadata"></video>
+ <p class="file-info" id="file-info"></p>
+ <form id="send-form">
+  <label for="name">What should the judges call you?</label><input type="text" id="name" maxlength="40" autocomplete="given-name" placeholder="Your first name" required>
+  <label for="age">Contestant’s age</label><input type="number" id="age" min="1" max="120" step="1" inputmode="numeric" placeholder="Age" required>
+  <label id="guardianRow" hidden style="font-size:13px;line-height:1.5"><input id="guardian" type="checkbox"> I am the parent or guardian submitting this video for this child.</label>
+  <label for="caption">Your video’s caption <span class="optional">(optional)</span></label><input type="text" id="caption" maxlength="200" placeholder="Give them a little context">
+  <p class="review-error" id="review-error" role="alert" hidden></p>
+  <button class="upload send" type="submit" id="send">Send it to the judges</button>
+ </form>
+</dialog>
+<button id="retryShow" type="button" hidden class="upload" style="position:fixed;bottom:90px;left:10%;width:80%;z-index:30">Retry saved video ↻</button><script>
+'use strict';
+const MAX_BYTES=100000000,MAX_SECONDS=30;
+const $=id=>document.getElementById(id);
+$('age').oninput=()=>{$('guardianRow').hidden=!(Number($('age').value)>0&&Number($('age').value)<16);};
+const chooseMarkup=$('choose').innerHTML;
+let selected=null,previewURL=null,selectionId=0,busy=false,lastPercent=0;let pendingShow=localStorage.getItem('buzzed-pending-show')||'',attemptStarted=0;function processing(on){busy=on;document.querySelector('.invitation').classList.toggle('processing',on);$('send').disabled=on;$('choose').disabled=on;}function rememberPending(id){pendingShow=id;localStorage.setItem('buzzed-pending-show',id);}
+const showError=text=>{$('error').textContent=text;$('error').hidden=!text;};
+function closeMenu(){$('menu').hidden=true;$('menu-button').setAttribute('aria-expanded','false');}
+$('menu-button').onclick=()=>{const open=$('menu').hidden;$('menu').hidden=!open;$('menu-button').setAttribute('aria-expanded',String(open));};
+document.addEventListener('click',e=>{if(!e.target.closest('#menu,#menu-button'))closeMenu();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+const info={how:['Everybody deserves an audience.','<p>Choose your video, tell us your first name, and send it to Vincent, Rosa and Dante.</p><p>This is a buzz show. Each judge can hit the buzzer if your clip loses them. One buzz doesn’t stop the show—but three do.</p><p>Then comes the debate: honest reactions, clashing opinions, and your chance to ask a question. Finally, each judge reveals a score out of ten. A judge who buzzed gives less than five.</p><p>Download your show, judges and all, to keep or share.</p>'],limits:['Video requirements','<ul><li>30 seconds or less</li><li>100 MB or less</li><li>A video file, such as MP4, MOV or WebM</li></ul><p>The upload button opens your phone’s video library or file picker. On a computer, choose a video from your files.</p>']};
+document.querySelectorAll('[data-info]').forEach(b=>b.onclick=()=>{const [title,body]=info[b.dataset.info];closeMenu();$('info-title').textContent=title;$('info-body').innerHTML=body;$('info').showModal();});
+document.querySelectorAll('dialog .close').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
+$('review').addEventListener('close',()=>$('preview').pause());
+$('choose').onclick=()=>{if(!busy){$('file').value='';$('file').click();}};
+function readDuration(file){return new Promise((resolve,reject)=>{const video=document.createElement('video'),url=URL.createObjectURL(file);let finished=false;const finish=(ok,value)=>{if(finished)return;finished=true;clearTimeout(timer);video.removeAttribute('src');video.load();URL.revokeObjectURL(url);ok?resolve(value):reject(new Error(value));};const timer=setTimeout(()=>finish(false,'We couldn’t read this video. Try an MP4 version.'),15000);video.preload='metadata';video.onloadedmetadata=()=>Number.isFinite(video.duration)&&video.duration>0?finish(true,video.duration):finish(false,'We couldn’t read this video. Try an MP4 version.');video.onerror=()=>finish(false,'This browser couldn’t read the video. Try an MP4 version.');video.src=url;});}
+$('file').onchange=async()=>{
+ const file=$('file').files[0];if(!file)return;const id=++selectionId;selected=null;showError('');
+ if(file.size>MAX_BYTES){showError('That video is over 100 MB. Choose a smaller file.');return;}
+ if(!file.type.startsWith('video/')&&!/\.(mp4|mov|webm|m4v|mpeg|mpg)$/i.test(file.name)){showError('Choose a video file, such as MP4 or MOV.');return;}
+ $('choose').disabled=true;$('choose').textContent='Checking your video…';
+ try{const duration=await readDuration(file);if(id!==selectionId)return;if(duration>MAX_SECONDS+.05)throw new Error('That video is longer than 30 seconds. Trim it and try again.');selected=file;pendingShow='';localStorage.removeItem('buzzed-pending-show');$('retryShow').hidden=true;parent.postMessage({type:'prewarm-show'},location.origin);if(previewURL)URL.revokeObjectURL(previewURL);previewURL=URL.createObjectURL(file);$('preview').src=previewURL;$('file-info').textContent=`${file.name} · ${duration.toFixed(1)} seconds · ${(file.size/1e6).toFixed(1)} MB`;$('review-error').hidden=true;$('review').showModal();}
+ catch(e){showError(e.message);}finally{if(id===selectionId){$('choose').disabled=false;$('choose').innerHTML=chooseMarkup;}}
+};
+function setStatus(title,detail,progress){if(progress!==null){progress=Math.max(lastPercent,progress);lastPercent=progress;}$('status').hidden=false;$('status-title').textContent=title;$('status-detail').textContent=detail;$('upload-percent').hidden=progress===null;$('upload-percent').textContent=progress===null?'':Math.min(100,Math.max(0,Math.round(progress)))+'%';if(progress!==null&&progress<100){const dots=document.createElement('span');dots.className='loading-dots';dots.setAttribute('aria-hidden','true');dots.innerHTML='<i></i><i></i><i></i>';$('upload-percent').append(dots);}}
+function upload(file,name,caption,age,guardian){return new Promise((resolve,reject)=>{const req=new XMLHttpRequest();req.open('POST','/api/shows');req.setRequestHeader('Content-Type',file.type||'application/octet-stream');req.setRequestHeader('X-Creator-Name',encodeURIComponent(name));req.setRequestHeader('X-Reel-Title',encodeURIComponent(caption));req.setRequestHeader('X-Creator-Age',String(age));req.setRequestHeader('X-Guardian-Confirmed',guardian?'yes':'no');req.upload.onprogress=e=>{if(e.lengthComputable)setStatus('Uploading your video…','Getting it over to the studio.',Math.round(e.loaded/e.total*20));};req.onload=()=>{if(req.status>=200&&req.status<300)setStatus('Your video is in.','Getting the studio ready.',20);let d;try{d=JSON.parse(req.responseText);}catch{reject(new Error('The studio couldn’t accept the upload. Please try again.'));return;}req.status>=200&&req.status<300?resolve(d):reject(new Error(d.error||'Upload failed. Please try again.'));};req.onerror=()=>reject(new Error('The connection dropped. Please try again.'));req.send(file);});}
+const steps={queued:['Your video is in.','Getting the studio ready.'],watching:['The show is about to start!','Getting the studio ready for your moment.'],writing:['Setting the stage.','A little showbiz magic.'],voicing:['Warming up their voices.','Your show is nearly ready.']};
+async function poll(id){let failures=0;for(;;){await new Promise(r=>setTimeout(r,1800));let d;try{const r=await fetch('/api/shows/'+encodeURIComponent(id),{cache:'no-store'});if(!r.ok)throw new Error();d=await r.json();failures=0;}catch{if(++failures<8)continue;throw new Error('We lost contact with the studio. Please try again.');}if(d.step==='ready'){localStorage.removeItem('buzzed-pending-show');$('retryShow').hidden=true;setStatus('Showtime.','Your judges are ready.',100);if(parent!==window)parent.postMessage({type:'app-navigate',path:'/s/'+encodeURIComponent(id)},location.origin);else location.assign('/s/'+encodeURIComponent(id));return;}if(d.step==='failed')throw new Error('The studio couldn’t finish this video. Please try again.');const [title,detail]=steps[d.step]||steps.queued;setStatus(title,detail,20+Math.round((d.progress||0)*.8));}}
+$('send-form').onsubmit=async e=>{e.preventDefault();if(!selected||busy)return;const name=$('name').value.trim();if(!name){$('name').focus();return;}const age=Number($('age').value);if(!Number.isInteger(age)||age<1||age>120){$('age').focus();return;}if(age<16&&!$('guardian').checked){$('guardianRow').hidden=false;$('guardian').focus();return;}attemptStarted=Date.now();$('retryShow').hidden=true;lastPercent=0;busy=true;document.querySelector('.invitation').classList.add('processing');$('send').disabled=true;$('choose').disabled=true;$('review').close();showError('');setStatus('Uploading your video…','Getting it over to the studio.',0);try{const d=await upload(selected,name,$('caption').value.trim(),age,$('guardian').checked);if(!d.id)throw new Error('The studio couldn’t start your show. Please try again.');rememberPending(d.id);sessionStorage.setItem('buzzed-build-start:'+d.id,String(attemptStarted));sessionStorage.setItem('buzzed-upload-ms:'+d.id,String(Date.now()-attemptStarted));await poll(d.id);}catch(error){showError(pendingShow?'Your video is saved. '+error.message:error.message);$('retryShow').hidden=!pendingShow;$('status').hidden=true;busy=false;document.querySelector('.invitation').classList.remove('processing');$('send').disabled=false;$('choose').disabled=false;}};
+$('retryShow').onclick=async()=>{if(busy||!pendingShow)return;processing(true);$('retryShow').hidden=true;showError('');setStatus('Getting your show ready…','Your video is already saved.',null);try{const r=await fetch('/api/shows/'+pendingShow+'/retry',{method:'POST'});const d=await r.json();if(!r.ok)throw Error(d.error||'Please try again.');await poll(pendingShow);}catch(e){processing(false);showError(e.message);$('retryShow').hidden=false;}};
+if(pendingShow&&/^[a-zA-Z0-9_-]{8,70}$/.test(pendingShow)){$('retryShow').hidden=false;showError('Your previous video is saved. Resume it without uploading again.');}
+window.addEventListener('pagehide',()=>{if(previewURL)URL.revokeObjectURL(previewURL);});
+</script>
+<script>document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(a&&a.getAttribute('href').startsWith('/')&&parent!==window){e.preventDefault();parent.postMessage({type:'app-navigate',path:a.getAttribute('href')},location.origin);}});</script><script>addEventListener('message',e=>{if(e.origin===location.origin&&e.data.type==='keyboard-inset')document.documentElement.style.setProperty('--keyboard-offset',e.data.pixels+'px')});document.addEventListener('focusin',e=>{if(e.target.matches('input,textarea'))parent.postMessage({type:'compose-state',open:true},location.origin)});document.addEventListener('focusout',()=>queueMicrotask(()=>{if(!document.activeElement.matches('input,textarea'))parent.postMessage({type:'compose-state',open:false},location.origin)}));</script></body>
+</html>

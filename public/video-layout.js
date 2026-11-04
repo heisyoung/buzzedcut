@@ -1,0 +1,1 @@
+export function fitScreeningVideo(stageWidth,stageHeight,videoWidth,videoHeight){const ratio=videoWidth/videoHeight;if(!(stageWidth>0&&stageHeight>0&&ratio>0&&Number.isFinite(ratio)))return null;const maxW=stageWidth*.90-4,maxH=stageHeight*.43-4;const width=Math.min(maxW,maxH*ratio),height=width/ratio;return {left:(stageWidth-width)/2,top:stageHeight*.53,width,height};}
