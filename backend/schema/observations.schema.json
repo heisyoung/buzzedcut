@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["duration_s", "one_line", "first_frame", "audio", "apparent_minor", "recognizable_real_person", "recognizable_brand_or_song", "sensitive_topics", "pacing", "observations"],
+  "properties": {
+    "duration_s": { "type": "number" },
+    "one_line": { "type": "string", "description": "What the reel is, in one plain sentence." },
+    "first_frame": { "type": "string", "description": "What is on screen at 0.0s." },
+    "audio": { "type": "string", "description": "Music, speech, silence, sound effects across the reel." },
+    "apparent_minor": { "type": "boolean" },
+    "recognizable_real_person": { "type": "boolean" },
+    "recognizable_brand_or_song": { "type": "boolean" },
+    "sensitive_topics": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["politics", "war_or_weapons", "religion", "medical", "drugs_or_alcohol", "sexual", "violence", "other"] }
+    },
+    "pacing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cut_count", "longest_static_s", "longest_static_at", "notes"],
+      "properties": {
+        "cut_count": { "type": "integer" },
+        "longest_static_s": { "type": "number" },
+        "longest_static_at": { "type": "number" },
+        "notes": { "type": "string" }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "t_start", "t_end", "kind", "what", "craft"],
+        "properties": {
+          "id": { "type": "string", "description": "o1, o2, ... in time order" },
+          "t_start": { "type": "number" },
+          "t_end": { "type": "number" },
+          "kind": { "type": "string", "enum": ["visual", "speech", "text_on_screen", "music", "sound", "cut", "camera", "oddity"] },
+          "what": { "type": "string" },
+          "craft": { "type": "string" }
+        }
+      }
+    }
+  }
+}
