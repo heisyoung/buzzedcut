@@ -1,0 +1,1 @@
+import assert from'node:assert/strict';import{fitScreeningVideo}from'../public/video-layout.js';for(const [w,h]of[[1080,1920],[1920,1080],[1000,1000],[640,1280]]){const b=fitScreeningVideo(390,844,w,h);assert.ok(Math.abs(b.width/b.height-w/h)<1e-9);assert.ok(b.left>0&&b.left+b.width<390);assert.ok(b.top+b.height<844*.96);console.log(w,h,JSON.stringify(b));}
